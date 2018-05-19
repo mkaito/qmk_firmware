@@ -12,7 +12,9 @@
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE,
   GG,
+  GGWP,
   GLHF,
+  QUIT,
   VRSN,
 };
 
@@ -76,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // right hand
        _______,  _______, _______, _______, _______, _______, _______,
        _______,  _______, _______, _______, _______, _______, _______,
-                 _______, _______, _______, _______, _______, _______,
+                 KC_LEFT, KC_DOWN, KC_UP,   KC_RIGHT,_______, _______,
        _______,  _______, KC_MPRV, KC_MNXT, KC_MPLY, _______, _______,
                           KC_VOLU, KC_VOLD, KC_MUTE, _______, _______,
        _______, _______,
@@ -86,20 +88,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [STAR] = LAYOUT_ergodox(  // layer 3: StarCraft II
         // left hand
-        KC_F1,  KC_1,   KC_2,   KC_3,    KC_4,    KC_5,   KC_6,
-        KC_F2,  KC_Q,   KC_W,   KC_E,    KC_R,    KC_T,   KC_7,
-        KC_F3,  KC_A,   KC_S,   KC_D,    KC_F,    KC_G,
-        KC_F4,  KC_Z,   KC_X,   KC_C,    KC_V,    KC_B,   KC_8,
-        KC_F5,  GG,     GLHF,   KC_LALT, KC_ESC,
+        KC_LSFT,KC_1,   KC_2,   KC_3,    KC_4,    KC_5,   KC_6,
+        KC_TAB, KC_Q,   KC_W,   KC_E,    KC_R,    KC_T,   KC_7,
+        KC_F1,  KC_A,   KC_S,   KC_D,    KC_F,    KC_G,
+        KC_F2,  KC_Z,   KC_X,   KC_C,    KC_V,    KC_B,   KC_8,
+        KC_F3,  KC_F4,  KC_F5,  KC_LALT, KC_LCTL,
 
                                          KC_SLCK, KC_LGUI,
                                                   KC_HOME,
-                                KC_SPC,  KC_TAB,  KC_END,
+                                KC_SPC,  KC_ESC,  KC_END,
     // right hand
-       TO(BASE),  _______, _______, _______, _______, _______, _______,
-       _______,   _______, _______, _______, _______, _______, _______,
+       TO(BASE),  _______, _______, _______, _______, _______, GLHF,
+       QUIT,      _______, _______, _______, _______, _______, _______,
                   _______, _______, _______, _______, _______, _______,
-       _______,   _______, _______, _______, _______, _______, _______,
+       GGWP,      _______, _______, _______, _______, _______, GG,
                            _______, _______, _______, _______, _______,
        _______,   _______,
        _______,
@@ -114,10 +116,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
         return false;
       case GG:
-        SEND_STRING ("\n(gg)\n");
+        SEND_STRING ("\n(gg)<3\n");
         return false;
       case GLHF:
-        SEND_STRING ("\n(glhf)\n");
+        SEND_STRING ("\n(glhf)(probe)(cbpylon)\n");
+        return false;
+      case GGWP:
+        SEND_STRING ("\n(gg)(cbquit) GGWP!\n"SS_TAP(X_F10)"w");
+        return false;
+      case QUIT:
+        SEND_STRING (SS_TAP(X_F10)"qn");
         return false;
     }
   }
