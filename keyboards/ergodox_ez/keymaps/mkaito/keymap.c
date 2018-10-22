@@ -7,6 +7,7 @@
 #define SYMB 1             // symbols
 #define MDIA 2             // media keys
 #define STAR 3             // sc2 keys
+#define STR2 4             // sc2 extra keys
 #define _______ KC_TRNS    // unclutter
 
 enum custom_keycodes {
@@ -30,37 +31,37 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LSFT,        KC_Z,        KC_X,            KC_C,    KC_V,   KC_B,   KC_LGUI,
         LALT(KC_F4),    LALT(KC_F3), LALT(KC_F2),     KC_LALT, MO(SYMB),
 
-                                                      KC_SLCK, KC_LGUI,
-                                                               KC_HOME,
-                                             KC_BSPC, KC_SPC,  KC_END,
+                                                      KC_SLCK, KC_PSCR,
+                                                               KC_DEL,
+                                             KC_BSPC, KC_SPC,  _______,
         // right hand
-               TO(STAR),      KC_6,    KC_7,     KC_8,    KC_9,       KC_0,        KC_BSLASH,
-               LSFT(KC_INS),  KC_Y,    KC_U,     KC_I,    KC_O,       KC_P,        KC_MINUS,
-                              KC_H,    KC_J,     KC_K,    KC_L,       KC_SCLN,     KC_QUOTE,
-               KC_EQL,        KC_N,    KC_M,     KC_COMM, KC_DOT,     KC_SLSH,     KC_RSFT,
-                                       MO(SYMB), KC_LALT, LALT(KC_P), LALT(KC_F8), LALT(KC_F1),
+        TO(STAR),      KC_6,    KC_7,     KC_8,    KC_9,       KC_0,        KC_BSLASH,
+        LSFT(KC_INS),  KC_Y,    KC_U,     KC_I,    KC_O,       KC_P,        KC_MINUS,
+                       KC_H,    KC_J,     KC_K,    KC_L,       KC_SCLN,     KC_QUOTE,
+        KC_EQL,        KC_N,    KC_M,     KC_COMM, KC_DOT,     KC_SLSH,     KC_RSFT,
+                                MO(SYMB), KC_LALT, LALT(KC_P), LALT(KC_F8), LALT(KC_F1),
 
-                              KC_HOME, KC_END,
-                              KC_PGUP,
-                              KC_PGDN, KC_ENTER, KC_SPACE
+                       KC_HOME, KC_END,
+                       KC_PGUP,
+                       KC_PGDN, KC_ENTER, KC_SPACE
     ),
 // SYMBOLS
 [SYMB] = LAYOUT_ergodox(
        // left hand
        VRSN,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   _______,
-       _______,KC_EXLM, KC_AT,   KC_LCBR, KC_RCBR, KC_PIPE, _______,
+       _______,KC_EXLM, KC_AT,   KC_LBRC, KC_RBRC, KC_PIPE, _______,
        _______,KC_HASH, KC_CIRC, KC_LPRN, KC_RPRN, KC_GRV,
-       _______,KC_PERC, KC_DLR,  KC_LBRC, KC_RBRC, KC_TILD, _______,
+       _______,KC_PERC, KC_DLR,  KC_LCBR, KC_RCBR, KC_TILD, _______,
        RESET  ,_______, _______, _______, _______,
                                           _______, _______,
                                                    _______,
                                  _______, _______, _______,
        // right hand
        _______, KC_F6,     KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,
-       _______, KC_PGUP,   KC_7,    KC_8,    KC_9,    KC_ASTR, KC_F12,
-                KC_PGDOWN, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_F13,
-       _______, KC_AMPR,   KC_1,    KC_2,    KC_3,    KC_BSLS, KC_F14,
-                           _______, KC_DOT,  KC_0,    KC_EQL,  _______,
+       _______, KC_PGUP,   KC_P7,   KC_P8,   KC_P9,   KC_PSLS, KC_F12,
+                KC_PGDOWN, KC_P4,   KC_P5,   KC_P6,   KC_PAST, KC_F13,
+       _______, KC_AMPR,   KC_P1,   KC_P2,   KC_P3,   KC_PMNS, KC_NLCK,
+                           _______, KC_P0,   KC_PDOT, KC_PPLS, KC_PEQL,
                 _______,   _______,
                 _______,
                 _______,   _______,  _______
@@ -88,15 +89,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [STAR] = LAYOUT_ergodox(  // layer 3: StarCraft II
         // left hand
-        KC_LSFT,KC_1,   KC_2,   KC_3,    KC_4,    KC_5,   KC_6,
-        KC_TAB, KC_Q,   KC_W,   KC_E,    KC_R,    KC_T,   KC_7,
-        KC_F1,  KC_A,   KC_S,   KC_D,    KC_F,    KC_G,
-        KC_F2,  KC_Z,   KC_X,   KC_C,    KC_V,    KC_B,   KC_8,
-        KC_F3,  KC_F4,  KC_F5,  KC_LALT, KC_LCTL,
+        KC_LSFT,KC_1,  KC_2,   KC_3,    KC_4,    KC_5,   KC_6,
+        KC_TAB, KC_Q,  KC_W,   KC_E,    KC_R,    KC_T,   KC_7,
+        KC_LCTL,KC_A,  KC_S,   KC_D,    KC_F,    KC_G,
+        KC_LSFT,KC_Z,  KC_X,   KC_C,    KC_V,    KC_B,   KC_8,
+        KC_F10, KC_F9, KC_F11, KC_LALT, MO(STR2),
 
-                                         KC_SLCK, KC_LGUI,
-                                                  KC_HOME,
-                                KC_SPC,  KC_ESC,  KC_END,
+                                         _______, _______,
+                                                  _______,
+                                KC_SPC,  KC_ESC,  _______,
     // right hand
        TO(BASE),  _______, _______, _______, _______, _______, GLHF,
        QUIT,      _______, _______, _______, _______, _______, _______,
@@ -104,6 +105,27 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        GGWP,      _______, _______, _______, _______, _______, GG,
                            _______, _______, _______, _______, _______,
        _______,   _______,
+       _______,
+       _______,   _______, _______
+    ),
+[STR2] = LAYOUT_ergodox(  // layer 4: StarCraft II extra keys
+        // left hand
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,
+        _______, _______, _______, _______, _______, _______, KC_F7,
+        _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, KC_F8,
+        _______, _______, _______, _______, _______,
+
+                                         _______, _______,
+                                                  _______,
+                                _______,  _______,  _______,
+    // right hand
+       _______,  _______, _______, _______, _______, _______, _______,
+       _______,  _______, _______, _______, _______, _______, _______,
+                 _______, _______, _______, _______, _______, _______,
+       _______,  _______, _______, _______, _______, _______, _______,
+                          _______, _______, _______, _______, _______,
+       _______,  _______,
        _______,
        _______,   _______, _______
     ),
