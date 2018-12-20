@@ -3,8 +3,6 @@
 #include "action_layer.h"
 #include "version.h"
 
-#define TAPPING_TOGGLE 2
-
 #define BASE 0             // default layer
 #define SYMB 1             // symbols
 #define MDIA 2             // media keys
