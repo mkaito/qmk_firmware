@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______,KC_EXLM, KC_AT,   KC_LBRC, KC_RBRC, KC_PIPE, _______,
        _______,KC_HASH, KC_CIRC, KC_LPRN, KC_RPRN, KC_GRV,
        _______,KC_PERC, KC_DLR,  KC_LCBR, KC_RCBR, KC_TILD, _______,
-       RESET  ,_______, _______, _______, _______,
+       RESET  ,EEP_RST, _______, _______, _______,
                                           _______, _______,
                                                    _______,
                                  _______, _______, _______,
