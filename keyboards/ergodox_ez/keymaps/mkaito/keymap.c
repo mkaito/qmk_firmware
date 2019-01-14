@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                         _______, _______,
                                                  _______,
-                                KC_SPC, _______, _______,
+                                KC_SPC, KC_BSPC, _______,
        // right hand
        TO(DWRF),  _______, _______, _______, _______, _______, GLHF,
        QUIT,      _______, _______, _______, _______, _______, GG,
