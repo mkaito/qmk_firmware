@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
                                                       KC_SLCK, KC_PSCR,
                                                                KC_DEL,
-                                             KC_BSPC, KC_SPC,  _______,
+                                             KC_BSPC, KC_SPC,  KC_BRK,
         // right hand
         TO(STAR),      KC_6,    KC_7,     KC_8,    KC_9,       KC_0,        KC_BSLASH,
         LSFT(KC_INS),  KC_Y,    KC_U,     KC_I,    KC_O,       KC_P,        KC_MINUS,
@@ -99,11 +99,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                         _______, _______,
                                                  _______,
                                 KC_SPC, _______, _______,
-    // right hand
+       // right hand
        TO(DWRF),  _______, _______, _______, _______, _______, GLHF,
-       QUIT,      _______, _______, _______, _______, _______, _______,
+       QUIT,      _______, _______, _______, _______, _______, GG,
                   _______, _______, _______, _______, _______, _______,
-       GGWP,      _______, _______, _______, _______, _______, GG,
+       GGWP,      _______, _______, _______, _______, _______, _______,
                            _______, _______, _______, _______, _______,
        _______,   _______,
        _______,
@@ -160,7 +160,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
         return false;
       case GG:
-        SEND_STRING ("\n(gg)<3\n");
+        SEND_STRING ("\n(gg)(pheart)\n");
         return false;
       case GLHF:
         SEND_STRING ("\n(glhf)(probe)(cbpylon)\n");
@@ -253,4 +253,3 @@ uint32_t layer_state_set_user(uint32_t state) {
 
   return state;
 };
-
