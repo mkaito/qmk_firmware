@@ -160,14 +160,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING (QMK_KEYBOARD "/" QMK_KEYMAP " @ " QMK_VERSION);
         return false;
       case GG:
-        SEND_STRING ("\nggwp\n");
+        SEND_STRING ("\n(gg)(cbquit)\n");
         return false;
       case GLHF:
-        SEND_STRING ("\nglhf\n");
+        SEND_STRING ("\n(glhf)(cbprobe)\n");
         return false;
       case GGWP:
         // F10 w takes you straight from a game into the replay.
-        SEND_STRING ("\nggwp\n"SS_TAP(X_F10)"w");
+        SEND_STRING (SS_TAP(X_F10)"w");
         return false;
       case QUIT:
         // F10 followed by q or n will quit out of replays and surrender current game.
