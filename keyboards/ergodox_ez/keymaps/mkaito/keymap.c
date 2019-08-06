@@ -8,7 +8,6 @@
 #define MDIA 2             // media keys
 #define STAR 3             // sc2 keys
 #define STR2 4             // sc2 extra keys
-#define DWRF 5             // dwarf fortress
 #define _______ KC_TRNS    // unclutter
 
 enum custom_keycodes {
@@ -100,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                  _______,
                                 KC_SPC, KC_BSPC, _______,
        // right hand
-       TO(DWRF),  _______, _______, _______, _______, _______, GLHF,
+       TO(BASE),  _______, _______, _______, _______, _______, GLHF,
        GGWP,      _______, _______, _______, _______, _______, GG,
                   _______, _______, _______, _______, _______, _______,
        QUIT,      _______, _______, _______, _______, _______, _______,
@@ -130,27 +129,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______,
        _______,   _______, _______
     ),
-// Dwarf Fortress
-[DWRF] = LAYOUT_ergodox(
-       // left hand
-       _______,_______,_______,_______,_______,_______,_______,
-       _______,_______,_______,_______,_______,_______,_______,
-       _______,_______,_______,_______,_______,_______,
-       _______,_______,_______,_______,_______,_______,_______,
-       _______,_______,_______,_______,_______,
-                                       _______,_______,
-                                               _______,
-                               _______,_______,_______,
-       // right hand
-       TO(BASE), KC_D,    KC_B,     KC_Q,    KC_P,    KC_K,    KC_J,
-       KC_U,     KC_LT,   KC_P7,    KC_P8,   KC_P9,   KC_PSLS, KC_Z,
-                 KC_GT,   KC_P4,    KC_P5,   KC_P6,   KC_PAST, KC_L,
-       KC_A,     KC_ESC,  KC_P1,    KC_P2,   KC_P3,   KC_PMNS, KC_V,
-                          KC_PEQL,  KC_P0,   KC_PDOT, KC_PPLS, KC_NLCK,
-                 _______, _______,
-                 _______,
-                 _______, KC_SPACE, KC_ENTER
-),
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
